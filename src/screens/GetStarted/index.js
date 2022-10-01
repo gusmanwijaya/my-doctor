@@ -1,22 +1,34 @@
-import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {ILLogo, ILGetStarted} from '../../assets';
+import {ImageBackground, Platform, StyleSheet, Text, View} from 'react-native';
+import {ILGetStarted, ILLogo} from '../../assets';
 import {Button, Gap} from '../../components';
-import {fonts, colors} from '../../utils';
+import {colors, fonts} from '../../utils';
 
 const GetStarted = () => {
+  const navigation = useNavigation();
+
   return (
     <ImageBackground source={ILGetStarted} style={styles.page}>
       <View>
+        {Platform.OS === 'ios' && <Gap height={20} />}
         <ILLogo />
         <Text style={styles.title}>
           Konsultasi dengan dokter jadi lebih mudah & fleksibel
         </Text>
       </View>
       <View>
-        <Button title="Get Started" />
+        <Button
+          title="Get Started"
+          onPress={() => navigation.navigate('SignUp')}
+        />
         <Gap height={16} />
-        <Button title="Sign In" type="secondary" />
+        <Button
+          title="Sign In"
+          type="secondary"
+          onPress={() => navigation.replace('SignIn')}
+        />
+        {Platform.OS === 'ios' && <Gap height={20} />}
       </View>
     </ImageBackground>
   );
@@ -36,5 +48,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.primary[600],
     fontSize: 28,
     color: colors.white,
+    maxWidth: Platform.OS === 'android' ? 234 : Platform.OS === 'ios' && 235,
   },
 });

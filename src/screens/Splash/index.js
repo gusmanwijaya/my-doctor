@@ -1,8 +1,8 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import {ILLogo} from '../../assets';
 import {colors, fonts} from '../../utils';
-import {useNavigation} from '@react-navigation/native';
 
 const Splash = () => {
   const navigation = useNavigation();
