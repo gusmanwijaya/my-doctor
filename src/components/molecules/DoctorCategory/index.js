@@ -1,43 +1,22 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {ILCatUmum, ILCatPsikiater, ILCatObat} from '../../../assets';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {ILCatObat, ILCatPsikiater, ILCatUmum} from '../../../assets';
 import {colors, fonts} from '../../../utils';
-import {Gap} from '../../atoms';
 
 const DoctorCategory = ({category, onPress}) => {
   const Icon = () => {
     switch (category) {
       case 'dokter umum':
-        return (
-          <>
-            <ILCatUmum />
-            <Gap height={28} />
-          </>
-        );
+        return <ILCatUmum />;
 
       case 'psikiater':
-        return (
-          <>
-            <ILCatPsikiater />
-            <Gap height={28} />
-          </>
-        );
+        return <ILCatPsikiater />;
 
       case 'dokter obat':
-        return (
-          <>
-            <ILCatObat />
-            <Gap height={28} />
-          </>
-        );
+        return <ILCatObat />;
 
       default:
-        return (
-          <>
-            <ILCatUmum />
-            <Gap height={28} />
-          </>
-        );
+        return <ILCatUmum />;
     }
   };
 
@@ -66,6 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontFamily: fonts.primary[300],
     color: colors.text.primary,
+    marginTop: 28,
   },
   category: {
     fontSize: 12,
