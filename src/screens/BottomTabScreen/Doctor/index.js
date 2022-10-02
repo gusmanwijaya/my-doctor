@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
@@ -20,6 +21,8 @@ import {
 import {colors, fonts} from '../../../utils';
 
 const Doctor = () => {
+  const navigation = useNavigation();
+
   const profile = {
     fullName: 'Gusman Wijaya, S.Kom',
     profession: 'React Native Developer',
@@ -36,7 +39,10 @@ const Doctor = () => {
                 Platform.OS === 'android' ? 30 : Platform.OS === 'ios' && 50
               }
             />
-            <HomeProfile profile={profile} />
+            <HomeProfile
+              profile={profile}
+              onPress={() => navigation.navigate('UserProfile')}
+            />
           </View>
           <View style={styles.wrapperSection}>
             <Gap height={30} />
